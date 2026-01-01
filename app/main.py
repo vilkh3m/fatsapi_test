@@ -15,7 +15,7 @@ app.add_middleware(
 
 @app.get("/number/{num}")
 def show_number(num: int):
-    return {"number": num}
+    return {"number": num * 2}
 
 @app.get("/datetime")
 def show_datetime():
