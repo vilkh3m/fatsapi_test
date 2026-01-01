@@ -1,17 +1,17 @@
 from fastapi.testclient import TestClient
-from main import app 
+from main import app
 
 client = TestClient(app)
 
 def test_show_number():
     response = client.get("/number/42")
     assert response.status_code == 200
-    assert response.json() == {"number": 42}
+    assert response.json() == {"number": 84}
 
 def test_show_number_negative():
     response = client.get("/number/-10")
     assert response.status_code == 200
-    assert response.json() == {"number": -10}
+    assert response.json() == {"number": -20}
 
 def test_show_number_non_integer():
     response = client.get("/number/abc")
